@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ecrire un message{% endblock %}
+
+{% block body %} 
+    <h3 class="text-center">Veuillez envoyer votre message et nous allons vous répondre le plus tôt possible!</h3>
+
+    {{ include('messages/_form.html.twig') }}
+{% endblock %}

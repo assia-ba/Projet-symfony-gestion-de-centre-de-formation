@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une formation{% endblock %}
+
+{% block body %}
+{% include('navbarVertical.html.twig') %} 
+    <h1>Ajouter une formation</h1>
+
+    {{ include('formations/_form.html.twig') }}
+
+    <a href="{{ path('formations_index1') }}">Retour vers la liste des formations</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer les informations des formations{% endblock %}
+
+{% block body %}
+{% include('navbarVertical.html.twig') %} 
+    <h1>Mettre à jour les formations</h1>
+
+    {{ include('formations/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+     {{ include('formations/_delete_form.html.twig') }}
+
+    <a href="{{ path('formations_index1') }}">Retour vers la liste des formations</a>
+
+   
+{% endblock %}

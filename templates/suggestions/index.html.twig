@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des suggestions{% endblock %}
+ {% block stylesheets %}
+
+
+{% endblock %}
+ {% block javascripts %}
+
+{% endblock %}
+  
+{% block body %}
+ {% include('navbarVertical.html.twig') %} 
+    <h1>Liste des suggestions</h1>
+
+    <table class="table" >
+        <thead>
+            <tr>
+                
+                <th>Thème</th>
+                <th>Sujet</th>
+                <th colspan="2">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for suggestion in suggestions %}
+            <tr>
+                
+                <td>{{ suggestion.theme }}</td>
+                <td>{{ suggestion.sujet }}</td>
+                <td>
+                    <a href="{{ path('suggestions_show', {'id': suggestion.id}) }}">Détails</a>
+                </td>
+                <td>
+                     {{ include('suggestions/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune suggestion à afficher!</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     <br>
+        {{ knp_pagination_render(suggestions) }}
+{% endblock %}

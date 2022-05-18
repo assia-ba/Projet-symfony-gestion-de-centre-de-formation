@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des formations{% endblock %}
+
+{% block body %}
+{% include('navbarVertical2.html.twig') %} 
+    <h1>Liste des formations</h1>
+    <a href="{{ path('recherche_form') }}">Chercher une formation</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+               
+                <th>Thème</th>
+                <th>Nom</th>
+                <th>Date Debut</th>
+                <th>Date Fin</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th colspan="3">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formation in formations   %}
+            <tr>
+              
+                <td>{{ formation.theme }}</td>
+                <td>{{ formation.nom }}</td>
+                <td>{{ formation.dateDebut ? formation.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ formation.dateFin ? formation.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ formation.description }}</td>
+                <td>{{ formation.prix }}</td>
+                <td>
+                    <a href="{{ path('formations_show', {'id': formation.id}) }}">Détails</a>
+                </td>
+                <td>
+                    <a href="{{ path('inscription_form', {'id':formation.id}) }}">S'inscrire</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucune formation à afficher!</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+     {{ knp_pagination_render(formations) }}
+{% endblock %}

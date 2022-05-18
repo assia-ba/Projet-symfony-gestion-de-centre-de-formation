@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commentaires index{% endblock %}
+
+{% block body %}
+{% include('navbarVertical.html.twig') %} 
+    <h1>Liste des commentaires</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Email</th>
+                <th>Nom</th>
+                <th>Contenu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commentaire in commentaires %}
+            <tr>
+                <td>{{ commentaire.email }}</td>
+                <td>{{ commentaire.nom }}</td>
+                <td>{{ commentaire.contenu }}</td> 
+                <td>
+                     {{ include('commentaires/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun commentaire pour le moment!</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+        {{ knp_pagination_render(commentaires) }}
+{% endblock %}

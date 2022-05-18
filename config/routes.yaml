@@ -1,0 +1,31 @@
+#config/routes.yaml
+blog:
+  path: /
+  controller: App\Controller\IndexController::home
+
+accueil:
+  path: /accueil
+  controller: App\Controller\IndexController::accueil
+
+about:
+  path: /about
+  controller: App\Controller\IndexController::about
+
+admin:
+  path: /admin
+  controller: App\Controller\IndexController::admin
+
+etudiant:
+  path: /etudiant
+  controller: App\Controller\IndexController::etudiant
+
+calendar:
+  path: /calendar
+  controller: App\Controller\IndexController::calendar
+
+calendar2:
+  path: /calendar2
+  controller: App\Controller\IndexController::calendar2
+
+
+

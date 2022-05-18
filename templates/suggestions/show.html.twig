@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails{% endblock %}
+
+{% block body %}
+ {% include('navbarVertical.html.twig') %} 
+    <h1>Détails</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ suggestion.id }}</td>
+            </tr>
+            <tr>
+                <th>Thème</th>
+                <td>{{ suggestion.theme }}</td>
+            </tr>
+            <tr>
+                <th>Sujet</th>
+                <td>{{ suggestion.sujet }}</td>
+            </tr>
+        </tbody>
+    </table>
+     {{ include('suggestions/_delete_form.html.twig') }}
+    <a href="{{ path('suggestions_index') }}">Retour vers la liste des suggestions</a>
+{% endblock %}

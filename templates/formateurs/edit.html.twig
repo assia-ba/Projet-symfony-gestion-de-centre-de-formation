@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer les informattions des formateurs{% endblock %}
+
+{% block body %}
+{% include('navbarVertical.html.twig') %} 
+    <h1>Editer les informattions des formateurs</h1>
+
+    {{ include('formateurs/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('formateurs_index') }}">retour vers la liste des formateurs</a>
+
+    {{ include('formateurs/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails{% endblock %}
+
+{% block body %}
+{% include('navbarVertical2.html.twig') %} 
+    <h1>Détails</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Thème</th>
+                <td>{{ formation.theme }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ formation.nom }}</td>
+            </tr>
+            <tr>
+                <th>Date Debut</th>
+                <td>{{ formation.dateDebut ? formation.dateDebut|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date Fin</th>
+                <td>{{ formation.dateFin ? formation.dateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ formation.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ formation.prix }}</td>
+            </tr>
+            <tr>
+                <th>Formateur</th>
+                <td>{{ formation.idFormateur.toString() }}</td>
+            </tr>
+        </tbody>
+    </table>
+         <br>
+          <a href="{{ path('inscription_form', {'id':formation.id}) }}">S'inscrire</a>
+          <br>
+    <a href="/calendar2">Retour vers le calendrier des formations</a>
+    <br>
+    
+            <h1>Liste des commentaires</h1>
+            {% for commentaire in formation.commentaires %}
+                <p style="color: white"> publié par {{commentaire.nom}}: </p>
+                <div style="color: white"> {{commentaire.contenu|raw}} </div><br>
+                 {% else %}
+            <tr>
+                <td colspan="6"><h4>Aucun commentaire à afficher pour le moment!</h4></td>
+            </tr>
+            {% endfor %}
+        
+            <h1>Ajouter un commentaire</h1>
+            {{ form(commentaireForm)}}
+     
+{% endblock %}

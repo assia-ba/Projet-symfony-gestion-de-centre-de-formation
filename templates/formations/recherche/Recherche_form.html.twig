@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rechercher une formation{% endblock %}
+
+{% block body %}
+{% include('navbarVertical2.html.twig') %}
+<div class="grix x2 sm3 gutter=0 card">
+        <div class="col-xs2 col-sm3"> 
+    <h1>Rechercher une formation</h1>
+    
+     {{ form(form_search) }}
+
+</div> 
+</div> 
+  <div class="grix x2 sm3 gutter=0 card">
+        <div class="col-xs2 col-sm3">
+            <h1>Liste des formations trouvées</h1>
+            {% for f in formation %}
+                <p> theme de la formation: {{formation.theme}}: </p>
+            {% endfor %}
+        </div>  
+        </div> 
+{% endblock %}

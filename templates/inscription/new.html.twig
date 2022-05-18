@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'inscrire à une formation{% endblock %}
+
+{% block body %}
+    <h1>Formulaire d'inscription</h1>
+
+    {{ include('inscription/_form.html.twig') }}
+    <br>
+    <a href="{{ path('formations_index2') }}">retour vers la liste des formations</a>
+
+{% endblock %}
